@@ -1,4 +1,4 @@
-### Introduction
+### R Programming - Solution description
 
 This second programming assignment will require you to write an R
 function is able to cache potentially time-consuming computations. For
