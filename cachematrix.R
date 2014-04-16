@@ -13,16 +13,16 @@
 makeCacheMatrix <- function(x = matrix()) {
     inverse <<- NULL
     if (class(x) != "matrix" | nrow(x) != ncol(x)) {
-        message("The argument of 'makeCacheMatrix' must be a square R 'matrix' 
-                object. Will set the matrix to matrix()")
+        message(paste("The argument of 'makeCacheMatrix' must be a square R",
+                      "'matrix' object. Will set the matrix to matrix()"))
         x <- matrix()
     }
     
     ## Set the original matrix 'x'
     set <- function(y) {
         if (class(y) != "matrix" | nrow(y) != ncol(y)) {
-            message("The argument of 'set' must be a square R 'matrix' object. 
-                    Matrix not changed.")
+            message(paste("The argument of 'set' must be a square R 'matrix'",
+                          "object. Matrix not changed."))
             return(NULL)
         }
         x <<- y
@@ -34,12 +34,21 @@ makeCacheMatrix <- function(x = matrix()) {
     
     ## Set the inverse of the 'x' matrix
     setinverse <- function(matrix_inverse) {
+        ## Check the type and size of the input argument
+        if (class(matrix_inverse) != "matrix" 
+                | nrow(matrix_inverse) != ncol(matrix_inverse) 
+                | nrow(matrix_inverse) != ncol(get())) {
+            message(paste("The input argument must be a square matrix with ", 
+                          nrow(x), " rows. The inverse will not be set"))
+            return()
+        }
+      
         ## Before setting the 'inverse' we check if the user-provided 
         ## 'matrix_inverse' is indeed the inverse matrix of 'x'
-        ## (we check the equality: matrix_inverse * x == I) 
-        if (!all.equal(matrix_inverse %*% x, diag(nrow(matrix_inverse)))) {
-            message("The argument is NOT the inverse of the internally stored 
-                    matrix. The inverse will not be set.")
+        ## (we check the equality: matrix_inverse * x == I)
+        if (!isTRUE(all.equal(matrix_inverse %*% x, diag(nrow(matrix_inverse))))) {
+            message(paste("The argument is NOT the inverse of the internally",
+                          "stored matrix. The inverse will not be set."))
         } else {
             inverse <<- matrix_inverse
         }
@@ -70,8 +79,8 @@ makeCacheMatrix <- function(x = matrix()) {
 cacheSolve <- function(x, ...) {
     ## Check if 'x' is an object created with the 'makeCacheMatrix' function
     if (!identical(c("set", "get", "setinverse", "getinverse"), names(x))) {
-        message("The argument of cacheSolve must be an object created with 
-                the 'makeCacheMatrix' function")
+        message(paste("The argument of cacheSolve must be an object created",
+                      "with the 'makeCacheMatrix' function"))
         return(NULL)
     }
     
