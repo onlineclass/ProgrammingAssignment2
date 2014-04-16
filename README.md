@@ -1,16 +1,15 @@
 ### R Programming - Solution description
 
-This second programming assignment will require you to write an R
-function is able to cache potentially time-consuming computations. For
-example, taking the mean of a numeric vector is typically a fast
-operation. However, for a very long vector, it may take too long to
-compute the mean, especially if it has to be computed repeatedly (e.g.
-in a loop). If the contents of a vector are not changing, it may make
-sense to cache the value of the mean so that when we need it again, it
-can be looked up in the cache rather than recomputed. In this
-Programming Assignment will take advantage of the scoping rules of the R
-language and how they can be manipulated to preserve state inside of an
-R object.
+This repository contains the solution to the second programming 
+assignment: Caching the Inverse of a Matrix.
+The repository has been created by clonning @rdpeng/ProgrammingAssignment2.
+The original README.md file has been renamed to original.repo.README.md
+Following is a brief description of each file:
+
+* README.md - this file
+* original.repo.README.md - the assignment specification (original README.md)
+* cachematrix.R - R script containing the assignment solution
+* performanceTest.R - R script for performance testing/comparison
 
 ### Example: Caching the Mean of a Vector
 
