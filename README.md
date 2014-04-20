@@ -1,7 +1,7 @@
 ### R Programming - Solution description
 
 This repository contains the solution to the second programming 
-assignment: Caching the Inverse of a Matrix.
+assignment of the R Programming course: Caching the Inverse of a Matrix.
 The repository has been created by clonning @rdpeng/ProgrammingAssignment2.
 The original README.md file has been renamed to original.repo.README.md
 Following is a brief description of each file:
@@ -18,7 +18,7 @@ and `cacheSolve`) have been briefly described via the comments in R script (as
 recommended in the assignment specification).
 To check the `cachematrix.R` script, simply open it in the web browser or 
 download it in a folder on your computer and open it in R Studio.
-After you downloading the R scripts in the R working directory, the 
+After downloading the R scripts in the R working directory, the 
 following code sequence can be used to test the two functions implemented
 in `cachematrix.R`. The statements will perform the following tasks:
 
@@ -66,5 +66,5 @@ Following is an example of the output of deltaTime() called without arguments
        Speed-up: 6.33333333333314 times
 
 You can experiment with different matrix sizes by specifying the `m_size` 
-argument and different number of iterations by specifying the number 
-of `iterations`.
+argument and different number of iterations by specifying the  
+`iterations` argument.
