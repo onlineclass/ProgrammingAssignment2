@@ -8,8 +8,8 @@
 ##         user-provided inverse of matrix 'x'
 ##      4. 'getinverse' - function which returns the stored 'inverse' object
 ##
-## Note: The list can have both matrices 'x' and 'inverse' or only the 'inverse'
-## matrix set to NULL
+## Note: Each function that can operate only on specific objects will make one
+## or more validity checks
 makeCacheMatrix <- function(x = matrix()) {
     inverse <<- NULL
     if (class(x) != "matrix" | nrow(x) != ncol(x)) {
@@ -62,8 +62,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## The 'cacheSolve' function returns the inverse of a matrix stored in an object 
-## created with the 'makeCacheMatrix' function. The function returns 'NULL' if 
+## The 'cacheSolve' function returns the inverse of a matrix created and stored 
+## with the 'makeCacheMatrix' function. The function returns 'NULL' if 
 ## the argument 'x' has not been created with 'makeCacheMatrix'. There are two 
 ## possible use cases:
 ##      1. The inverse of the matrix stored in 'x' has been computed once 

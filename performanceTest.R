@@ -26,7 +26,7 @@ cache_inverse_compute <- function(m, it) {
 ## developed for the programming assignment. The function has 2 arguments:
 ##      - m_size = number of rows and columns of the matrix to be inverted
 ##      - iterations = number of times the matrix will be inverted
-deltaTime <- function(m_size = 500, iterations = 10) {
+deltaTime <- function(m_size = 100, iterations = 10) {
     ## Check if the functions required by cached inverse are available
     if (!exists("cacheSolve") | !exists("makeCacheMatrix")) {
         message(paste("Can not find cache matrix inversion functions.",
